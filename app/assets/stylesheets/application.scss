@@ -1,0 +1,23 @@
+@import "bourbon";
+@import "neat";
+@import "normalize";
+@import "copyit";
+
+header {
+  @include outer-container(100%);
+}
+
+.header__text {
+  p {
+    padding-top: 0.25em;
+    padding-bottom: 0.25em;
+    background: black;
+    color: white;
+    text-align: center;
+    font-size: 2em;
+    margin-top: 0;
+  }
+}
+
+footer {
+}
