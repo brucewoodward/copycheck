@@ -2,7 +2,7 @@
 %section
   .projects
     .projects__new
-      =form_tag("/projects", method: "post") do
+      =form_tag("/#{@key}", method: "post") do
         = hidden_field_tag(:key, @key)
         %ul
           %li
