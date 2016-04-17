@@ -1,2 +1,11 @@
 
-%h1 Hello
+%section
+  .projects
+    .projects__new
+      =form_tag("/projects", method: "post") do
+        = hidden_field_tag(:key, @key)
+        %ul
+          %li
+            =text_field_tag(:name, nil, placeholder: "Enter Your Name", maxlength: 50)
+          %li
+            =submit_tag("Create!")

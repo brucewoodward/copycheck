@@ -2,6 +2,16 @@
 @import "neat";
 @import "normalize";
 @import "copyit";
+@import "projects";
+
+html {
+  height: 100%;
+}
+
+body {
+  background: #f0ecea;
+  height: 100%;
+}
 
 header {
   @include outer-container(100%);
@@ -11,8 +21,8 @@ header {
   p {
     padding-top: 0.25em;
     padding-bottom: 0.25em;
-    background: black;
-    color: white;
+    background: #29a8b2;
+    color: #5ff3ff;
     text-align: center;
     font-size: 2em;
     margin-top: 0;
