@@ -25,6 +25,12 @@ section {
     width: 100%;
   }
 
+  textarea {
+    padding: 0.25em;
+    width: 100%;
+    font-size: 0.7em;
+  }
+
   input[type=submit] {
     padding: 0.25em;
     width: 100%;
@@ -49,23 +55,49 @@ section {
   @include span-columns(6);
   @include shift(3);
 
-
-  table {
-    font-size: 1.25em;
-    td {
-      padding-bottom: 1em;
-    }
-    th {
-      padding-bottom: 1em;
-    }
+  h2 {
+    font-size: 1.75em;
+    text-align: center;
   }
 
+  hr {
+    border-style: groove;
+    padding-border: 1em;
+  }
 }
 
-.projects__copy_details_date {
-  padding-right: 1em;
+.projects__copy_details_heading {
+  @include outer-container;
+  h3 {
+    font-size: 1.5em;
+    margin: 0.5em;
+  }
 }
 
-.projects__copy_details_changer {
+.projects__copy_details_date_heading {
+  @include span-columns(3 of 6);
 }
 
+.projects__copy_details_changer_heading {
+  @include span-columns(3 of 6);
+}
+
+.projects__copy_details_entry {
+  @include outer-container;
+  margin-top: 1em;
+}
+
+.projects__copy_details_entry_date {
+  @include span-columns(3 of 6);
+}
+.projects__copy_details_entry_changer {
+  @include span-columns(3 of 6);
+  @include omega();
+}
+.projects__copy_details_entry_text {
+  @include span-columns(6 of 6);
+  background: white;
+  border: 1px solid;
+  margin-top: 1em;
+  padding: 0.5em;
+}

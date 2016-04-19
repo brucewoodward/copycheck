@@ -23,14 +23,19 @@
               = submit_tag("Create!")
     .projects__copy_details
       - if !@copies.empty?
-        %table
-          %tr
-            %th Date changed
-            %th Changer
-          - @copies.each do |copy|
-            %tr
-              %td.projects__copy_details_date
-                #{copy.date.localtime}
-              %td.projects__copy_details_changer
-                #{copy.name}
+        %h2 Previous Copy Contents
+        %hr
+        .projects__copy_details_heading
+          .projects__copy_details_date_heading
+            %h3 Date changed
+          .projects__copy_details_changer_heading
+            %h3 Changer
+        - @copies.each do |copy|
+          .projects__copy_details_entry
+            .projects__copy_details_entry_date
+              #{copy.date.localtime}
+            .projects__copy_details_entry_changer
+              #{copy.name}
+            .projects__copy_details_entry_text
+              #{copy.text}
           
