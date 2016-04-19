@@ -2,8 +2,16 @@
 %section
   -# TODO flash thingy in rails.
   .projects
+
+    .projects__flash
+      - if flash
+        - flash.each do |name, msg|
+          %div{class: name}
+            %h1 #{msg}
+
     .projects__uid
       %h2 #{@key}
+
     .projects__new
       = form_tag("/projects/#{@key}/copies", method: "post") do 
         %ul
@@ -22,6 +30,7 @@
           %li
             .projects__submit
               = submit_tag("Create!")
+
     .projects__copy_details
       - if !@copies.empty?
         %h2 Previous Copy Contents
@@ -31,6 +40,7 @@
             %h3 Date changed
           .projects__copy_details_changer_heading
             %h3 Changer
+
         - @copies.each do |copy|
           .projects__copy_details_entry
             .projects__copy_details_entry_date

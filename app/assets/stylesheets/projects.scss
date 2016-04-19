@@ -104,3 +104,18 @@ section {
 
 .projects__copy_details_entry_text_line {
 }
+
+.projects__flash {
+  @include outer-container;
+}
+
+.projects__flash_notice {
+  background: #cc3333;
+  text-align: center;
+  h1 {
+    padding: 0.5em;
+    font-size: 2em;
+    color: white;
+    font-style: italics;
+  }
+}

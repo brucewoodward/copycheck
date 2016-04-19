@@ -1,6 +1,11 @@
 
 %section
   .projects
+    .projects__flash
+      - if flash
+        - flash.each do |name, msg|
+          %div{class: name}
+            %h1 #{msg}
     .projects__new
       =form_tag("/#{@key}", method: "post") do
         = hidden_field_tag(:key, @key)

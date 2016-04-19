@@ -28,10 +28,17 @@ class ProjectsController < ApplicationController
   end
 
   def create
-    project = Project.new
-    @key = project.key = params.fetch(:key)
-    project.save!
-    redirect_to url_for_key(name: params.fetch(:name))
+    @name = params[:name]
+    @key = params.fetch(:key)
+    if @name.empty?
+      flash[:projects__flash_notice] = "Your Name is Missing. Try Again."
+      redirect_to "/"
+    else
+      project = Project.new
+      project.key = @key
+      project.save!
+      redirect_to url_for_key(name: params.fetch(:name))
+    end
   end
 
 end

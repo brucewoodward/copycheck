@@ -6,6 +6,7 @@ class ApplicationController < ActionController::Base
   def url_for_key(params=nil)
     url = "/#{@key}"
     url += "?#{params.to_param}" if params
+    puts "url: #{url} params: #{params}"
     url
   end
 end
