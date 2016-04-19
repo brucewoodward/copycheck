@@ -1,9 +1,5 @@
 class ProjectsController < ApplicationController
 
-  def url_for_key
-    "/#{@key}"
-  end
-
   def show
     @key = params[:id]
     @name = params[:name]
@@ -18,7 +14,7 @@ class ProjectsController < ApplicationController
     project = Project.new
     @key = project.key = params.fetch(:key)
     project.save!
-    redirect_to url_for_key, id: project.key, name: params[:name]
+    redirect_to url_for_key(name: params.fetch(:name))
   end
 
 end
