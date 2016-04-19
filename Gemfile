@@ -48,3 +48,6 @@ end
 gem "haml-rails", "~> 0.9"
 gem "bourbon"
 gem "neat"
+
+gem 'rails_12factor', group: :production
+
