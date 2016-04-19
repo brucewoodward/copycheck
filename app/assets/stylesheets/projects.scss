@@ -8,6 +8,13 @@ section {
   }
 }
 
+.projects__uid {
+  text-align: center;
+  h2 {
+    font-size: 1.5em;
+  }
+}
+
 .projects__new {
   @include span-columns(6);
   @include shift(3);
@@ -31,4 +38,34 @@ section {
       margin-bottom: 1em;
     }
   }
+  @include clearfix;
 }
+
+.projects__copy_text_box {
+  font-size: 1em;
+}
+
+.projects__copy_details {
+  @include span-columns(6);
+  @include shift(3);
+
+
+  table {
+    font-size: 1.25em;
+    td {
+      padding-bottom: 1em;
+    }
+    th {
+      padding-bottom: 1em;
+    }
+  }
+
+}
+
+.projects__copy_details_date {
+  padding-right: 1em;
+}
+
+.projects__copy_details_changer {
+}
+
