@@ -1,14 +1,26 @@
+require 'ostruct'
+
 class ProjectsController < ApplicationController
+
+  def _massage_copy(copies)
+    copies.map do |copy|
+      OpenStruct.new(
+       name: copy.name, date: copy.date,
+       text: copy.text.split("\n")
+      )
+    end
+  end
 
   def show
     @key = params[:id]
     @name = params[:name]
     @copies = Project.copy_details_for(@key)
-    if @copies.empty?
-      @default_content = nil
+    default_content = if @copies.empty?
+      nil
     else
-      @default_content = @copies.first.text
+      @copies.first.text
     end
+    @copies = _massage_copy(@copies)
   end
   
   def new

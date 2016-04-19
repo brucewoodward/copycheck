@@ -37,5 +37,6 @@
             .projects__copy_details_entry_changer
               #{copy.name}
             .projects__copy_details_entry_text
-              #{copy.text}
-          
+              - copy.text.each do |line|
+                .projects__copy_details_entry_text_line
+                  #{line}
