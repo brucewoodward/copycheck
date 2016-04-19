@@ -4,6 +4,11 @@ class ProjectsController < ApplicationController
     @key = params[:id]
     @name = params[:name]
     @copies = Project.copy_details_for(@key)
+    if @copies.empty?
+      @default_content = nil
+    else
+      @default_content = @copies.first.text
+    end
   end
   
   def new

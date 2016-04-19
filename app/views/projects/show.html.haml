@@ -17,7 +17,7 @@
                 = text_field_tag(:name, nil, placeholder: "Enter Your Name", maxlength: 50)
           %li
             .projects__copy_text_box
-              = text_area_tag(:copy, nil, cols: 32, rows: 5)
+              = text_area_tag(:copy, @default_content, cols: 32, rows: 5)
           %li
             .projects__submit
               = submit_tag("Create!")
