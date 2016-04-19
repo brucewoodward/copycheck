@@ -15,7 +15,7 @@ class ProjectsController < ApplicationController
     @key = params[:id]
     @name = params[:name]
     @copies = Project.copy_details_for(@key)
-    default_content = if @copies.empty?
+    @default_content = if @copies.empty?
       nil
     else
       @copies.first.text
