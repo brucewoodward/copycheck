@@ -46,6 +46,4 @@
             ago
             %a.preview Preview this version of copy
             .projects__copy_details_entry_text
-              - copy.text.each do |line|
-                .projects__copy_details_entry_text_line
-                  = line
+              = simple_format h(copy.text)

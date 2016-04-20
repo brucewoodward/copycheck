@@ -28,10 +28,9 @@ class ProjectsController < ApplicationController
       redirect_to '/'
     else
       @default_content = @copies.empty? ? nil : @copies.first.text
-      @copies = _massage_copy(@copies)
     end
   end
-  
+
   def new
     @key = Key.generate
     @name = cookies[:name]
