@@ -2,14 +2,15 @@
 %html
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
-    %title Copyit
+    %title CopyCheck
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
-  %body
+
     %header
       .header__text
-        %p CopyIt!
+        = link_to root_path do
+          <strong>Copy</strong>Check
     = yield
     %footer
       %p

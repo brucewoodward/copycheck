@@ -1,33 +1,62 @@
 @import "bourbon";
 @import "neat";
 @import "normalize";
+@import "colors";
+@import "gridlover";
 @import "copyit";
 @import "projects";
 
 html {
   height: 100%;
-  background: #f0ecea;
 }
 
 body {
+  color: $color-body;
+  font-family: "Helvetica Neue", Helvetica, Arial, Sans-serif;
   height: 100%;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
 }
 
 header {
-  @include outer-container(100%);
+  @include outer-container();
 }
 
 .header__text {
-  p {
-    padding-top: 0.25em;
-    padding-bottom: 0.25em;
-    background: #29a8b2;
-    color: #5ff3ff;
-    text-align: center;
-    font-size: 2em;
-    margin-top: 0;
+  @include span-columns(6);
+  @include shift(3);
+
+  padding-top: 1em;
+  padding-bottom: 1em;
+
+  a {
+    text-decoration: none;
   }
 }
 
+.intro {
+  @include span-columns(6);
+  @include shift(3);
+  color: $color-body-light;
+  border: 1px solid $color-border;
+  border-radius: 0.5em;
+  list-style-position: inside;
+  margin-bottom: 2em;
+  padding: 1em 2em;
+}
+
+.intro__heading {
+  margin-bottom: 0.5em;
+}
+
+.intro__list {
+  margin-bottom: 0;
+  padding: 0;
+}
+
 footer {
+}
+
+a {
+  color: $color-primary;
 }
