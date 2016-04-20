@@ -11,20 +11,25 @@ class ProjectsController < ApplicationController
     end
   end
 
+  def _set_name
+    if not params[:name]
+      cookies[:name]
+    else
+      params[:name]
+    end
+  end
+
   def show
     @key = params[:id]
-    if not params[:name]
-      @name = cookies[:name]
-    else
-      @name = params[:name]
-    end
+    @name = _set_name
     @copies = Project.copy_details_for(@key)
-    @default_content = if @copies.empty?
-      nil
+    if not @copies
+      flash[:projects__flash_notice] = 'No such key'
+      redirect_to '/'
     else
-      @copies.first.text
+      @default_content = @copies.empty? ? nil : @copies.first.text
+      @copies = _massage_copy(@copies)
     end
-    @copies = _massage_copy(@copies)
   end
   
   def new
