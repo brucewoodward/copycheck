@@ -7,10 +7,10 @@
           %div{class: name}
             %h1 #{msg}
     .projects__new
-      =form_tag("/#{@key}", method: "post") do
+      = form_tag("/#{@key}", method: "post") do
         = hidden_field_tag(:key, @key)
         %ul
           %li
-            =text_field_tag(:name, nil, placeholder: "Enter Your Name", maxlength: 50)
+            =text_field_tag(:name, @name, placeholder: "Enter Your Name", maxlength: 50)
           %li
             =submit_tag("Create!")

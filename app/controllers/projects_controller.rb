@@ -13,7 +13,11 @@ class ProjectsController < ApplicationController
 
   def show
     @key = params[:id]
-    @name = params[:name]
+    if not params[:name]
+      @name = cookies[:name]
+    else
+      @name = params[:name]
+    end
     @copies = Project.copy_details_for(@key)
     @default_content = if @copies.empty?
       nil
@@ -25,10 +29,11 @@ class ProjectsController < ApplicationController
   
   def new
     @key = Key.generate
+    @name = cookies[:name]
   end
 
   def create
-    @name = params[:name]
+    @name = cookies[:name] = params[:name]
     @key = params.fetch(:key)
     if @name.empty?
       flash[:projects__flash_notice] = "Your Name is Missing. Try Again."
