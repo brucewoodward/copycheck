@@ -11,17 +11,9 @@ class ProjectsController < ApplicationController
     end
   end
 
-  def _set_name
-    if not params[:name]
-      cookies[:name]
-    else
-      params[:name]
-    end
-  end
-
   def show
     @key = params[:id]
-    @name = _set_name
+    @name = params.fetch(:name, cookies[:name])
     @copies = Project.copy_details_for(@key)
     if not @copies
       flash[:projects__flash_notice] = 'No such key'
