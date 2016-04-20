@@ -1,5 +1,3 @@
-require 'ostruct'
-
 class ProjectsController < ApplicationController
 
   def show
