@@ -9,6 +9,7 @@ class CopiesController < ApplicationController
       flash[:projects__flash_notice] = "Blank copy is no good. Try Again."
       redirect_to url_for_key(name: params[:name])
     else
+      cookies[:name] = params[:name]
       Copy.make(params)
       redirect_to url_for_key
     end
