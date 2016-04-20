@@ -1,6 +1,18 @@
-
 %section
   .projects
+    .intro
+      %p
+        CopyCheck makes it simple to post and review copy
+        for emails and websites.
+
+      %h3.intro__heading How it works
+
+      %ol.intro__list
+        %li Enter your name
+        %li Post the first version of the copy for review
+        %li Send the URL to your reviewers
+
+
     .projects__flash
       - if flash
         - flash.each do |name, msg|
@@ -9,8 +21,8 @@
     .projects__new
       = form_tag("/#{@key}", method: "post") do
         = hidden_field_tag(:key, @key)
-        %ul
+        %ul.projects__fields
           %li
             =text_field_tag(:name, @name, placeholder: "Enter Your Name", maxlength: 50)
           %li
-            =submit_tag("Create!")
+            =submit_tag("Set your name")
