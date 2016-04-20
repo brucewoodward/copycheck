@@ -2,15 +2,6 @@ require 'ostruct'
 
 class ProjectsController < ApplicationController
 
-  def _massage_copy(copies)
-    copies.map do |copy|
-      OpenStruct.new(
-       name: copy.name, date: copy.date,
-       text: copy.text.split("\n")
-      )
-    end
-  end
-
   def show
     @key = params[:id]
     @name = params.fetch(:name, cookies[:name])
