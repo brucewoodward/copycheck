@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :projects do
     resources :copies
   end
-  get '/:id', to: 'projects', action: 'show', constraints: { id: /[[:print:]]{31}/ }
-  post '/:id', to: 'projects', action: 'create', constraints: { id: /[[:print:]]{31}/ }
-  get '*unmatched_route', to: 'application', action: 'no_such_url'
+  get '/:id', controller: 'projects', action: 'show', constraints: { id: /[[:print:]]{31}/ }
+  post '/:id', controller: 'projects', action: 'create', constraints: { id: /[[:print:]]{31}/ }
+  get '*unmatched_route', controller: 'application', action: 'no_such_url'
 end
