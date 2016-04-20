@@ -47,7 +47,7 @@ class ProjectsController < ApplicationController
       project = Project.new
       project.key = @key
       project.save!
-      redirect_to url_for_key(name: params.fetch(:name))
+      redirect_to url_for_key(name: @name)
     end
   end
 
