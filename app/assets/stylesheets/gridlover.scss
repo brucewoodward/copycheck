@@ -1,0 +1,73 @@
+body {
+  font-size: 14px;
+  line-height: 25px;
+}
+h1 {
+  font-family: inherit;
+  font-weight: 600;
+  font-style: inherit;
+  font-size: 75px;
+  line-height: 75px;
+  margin-top: 25px;
+  margin-bottom: 0px;
+}
+h2 {
+  font-family: inherit;
+  font-weight: 600;
+  font-style: inherit;
+  font-size: 43px;
+  line-height: 50px;
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+h3 {
+  font-family: inherit;
+  font-weight: 600;
+  font-style: inherit;
+  font-size: 24px;
+  line-height: 25px;
+  margin-top: 25px;
+  margin-bottom: 0px;
+}
+h4 {
+  font-family: inherit;
+  font-weight: 600;
+  font-style: inherit;
+  font-size: 14px;
+  line-height: 25px;
+  margin-top: 25px;
+  margin-bottom: 0px;
+}
+h5 {
+  font-family: inherit;
+  font-weight: 400;
+  font-style: italic;
+  font-size: 14px;
+  line-height: 25px;
+  margin-top: 25px;
+  margin-bottom: 0px;
+}
+p, ul, ol, pre, table, blockquote {
+  margin-top: 0px;
+  margin-bottom: 25px;
+}
+ul ul, ol ol, ul ol, ol ul {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+hr {
+  border: 1px solid;
+  margin: -1px 0;
+}
+b, strong, em, small, code {
+  line-height: 1;
+}
+sup {
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+  top: -0.5em;
+}
+sub {
+  bottom: -0.25em;
+}
