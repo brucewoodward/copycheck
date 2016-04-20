@@ -9,4 +9,10 @@ class ApplicationController < ActionController::Base
     puts "url: #{url} params: #{params}"
     url
   end
+
+  def no_such_url
+    flash[:projects__flash_notice] = "Where are you going? #{response.original_fullpath}"
+    redirect_to "/"
+  end
+
 end
