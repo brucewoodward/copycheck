@@ -37,12 +37,12 @@ class ProjectsController < ApplicationController
   end
 
   def create
-    @name = cookies[:name] = params[:name]
-    @key = params.fetch(:key)
-    if @name.empty?
+    if params[:name].empty?
       flash[:projects__flash_notice] = "Your Name is Missing. Try Again."
       redirect_to "/"
     else
+      @name = cookies[:name] = params[:name]
+      @key = params.fetch(:key)
       project = Project.new
       project.key = @key
       project.save!
