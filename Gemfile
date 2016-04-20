@@ -51,3 +51,10 @@ gem "neat"
 
 gem 'rails_12factor', group: :production
 
+group :development, :test do
+    gem 'rspec-rails', '~> 3.0'
+end
+
+#%w[rspec-core rspec-expectations rspec-mocks rspec-rails rspec-support].each do |lib|
+#    gem lib, :git => "https://github.com/rspec/#{lib}.git", :branch => 'master'
+#end
