@@ -13,12 +13,15 @@
       %h2 #{@key}
 
     .projects__new
-      = form_tag("/projects/#{@key}/copies", method: "post") do 
+      = form_tag("/projects/#{@key}/copies", method: "post") do
         %ul
           %li
             - if @name
               .projects__show_user_name
-                %p #{@name}
+                %p
+                  <strong>#{@name}</strong>, make your changes to the copy below or if this is
+                  the first version, paste it in before sending the url
+                  to your reviewers:
                 = hidden_field_tag(:name, @name)
             - else
               .projects__input_user_name
@@ -26,28 +29,23 @@
           %li
             .projects__copy_text_box
               = text_area_tag(:copy, @default_content, cols: 32, rows: 5,
-                placeholder: "Enter Your Copy and click Create!")
+                placeholder: "Enter your copy here")
           %li
             .projects__submit
-              = submit_tag("Create!")
+              = submit_tag("Save this copy for others to review")
 
     .projects__copy_details
       - if !@copies.empty?
-        %h2 Previous Copy Contents
-        %hr
-        .projects__copy_details_heading
-          .projects__copy_details_date_heading
-            %h3 Date changed
-          .projects__copy_details_changer_heading
-            %h3 Changer
+        %h3 Previous Copy Changes
 
         - @copies.each do |copy|
           .projects__copy_details_entry
-            .projects__copy_details_entry_date
-              #{copy.date.localtime}
-            .projects__copy_details_entry_changer
-              #{copy.name}
+            %strong= copy.name
+            made changed this copy
+            = time_ago_in_words(copy.date.localtime)
+            ago
+            %a.preview Preview this version of copy
             .projects__copy_details_entry_text
               - copy.text.each do |line|
                 .projects__copy_details_entry_text_line
-                  #{line}
+                  = line

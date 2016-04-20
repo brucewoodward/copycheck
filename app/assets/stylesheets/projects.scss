@@ -2,6 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+textarea, input { outline: none; }
+
 section {
   .projects {
     @include outer-container;
@@ -9,6 +11,7 @@ section {
 }
 
 .projects__uid {
+  display: none;
   text-align: center;
   h2 {
     font-size: 1.5em;
@@ -18,37 +21,43 @@ section {
 .projects__new {
   @include span-columns(6);
   @include shift(3);
-  font-size: 2em;
 
   input[type=text] {
-    padding: 0.25em;
+    border: 1px solid $color-border;
+    border-radius: 0.25em;
+    padding: 0.5em;
     width: 100%;
   }
 
   textarea {
-    padding: 0.25em;
+    border: 1px solid $color-border;
+    border-radius: 0.25em;
+    padding: 0.5em;
+    height: 25em;
     width: 100%;
-    font-size: 0.7em;
   }
 
   input[type=submit] {
-    padding: 0.25em;
+    background: $color-primary;
+    border: none;
+    border-radius: 0.25em;
+    color: $color-white;
+    font-weight: bold;
+    padding: 0.5em;
     width: 100%;
-    background: #ff954c;
   }
 
   ul {
     list-style: none;
     padding-left: 0;
     li {
-      margin-bottom: 1em;
+      margin-bottom: 0.5em;
     }
   }
   @include clearfix;
 }
 
 .projects__copy_text_box {
-  font-size: 1em;
 }
 
 .projects__copy_details {
@@ -56,7 +65,6 @@ section {
   @include shift(3);
 
   h2 {
-    font-size: 1.75em;
     text-align: center;
   }
 
@@ -69,7 +77,6 @@ section {
 .projects__copy_details_heading {
   @include outer-container;
   h3 {
-    font-size: 1.5em;
     margin: 0.5em;
     margin-left: 0;
   }
@@ -86,6 +93,11 @@ section {
 .projects__copy_details_entry {
   @include outer-container;
   margin-top: 1em;
+
+  a.preview {
+    cursor: pointer;
+    display: block;
+  }
 }
 
 .projects__copy_details_entry_date {
@@ -97,10 +109,10 @@ section {
 }
 .projects__copy_details_entry_text {
   @include span-columns(6 of 6);
-  background: white;
-  border: 1px solid;
-  margin-top: 1em;
-  padding: 0.5em;
+  box-sizing: border-box;
+  display: none;
+  padding-left: 1.5em;
+  border-left: 0.5em solid $color-border;
 }
 
 .projects__copy_details_entry_text_line {
@@ -111,11 +123,9 @@ section {
 }
 
 .projects__flash_notice {
-  background: #cc3333;
   text-align: center;
   h1 {
     padding: 0.5em;
-    font-size: 2em;
     color: white;
     font-style: italics;
   }
