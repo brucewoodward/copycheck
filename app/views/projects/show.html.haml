@@ -9,9 +9,6 @@
           %div{class: name}
             %h1 #{msg}
 
-    .projects__uid
-      %h2 #{@key}
-
     .projects__new
       = form_tag("/projects/#{@key}/copies", method: "post") do
         %ul
