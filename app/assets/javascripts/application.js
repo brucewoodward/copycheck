@@ -20,4 +20,10 @@ $(function() {
     event.preventDefault();
     $(this.parentNode).find('.projects__copy_details_entry_text').first().toggle();
   });
+
+  $('.projects__copy_details_entry a.diffpreview').click(function(event) {
+    console.log('here we are');
+    event.preventDefault();
+    $(this.parentNode).find('.projects__copy_diff').first().toggle();
+  });
 });

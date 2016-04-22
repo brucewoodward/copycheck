@@ -98,6 +98,11 @@ section {
     cursor: pointer;
     display: block;
   }
+
+  a.diffpreview {
+    cursor: pointer;
+    display: block;
+  }
 }
 
 .projects__copy_details_entry_date {
@@ -113,6 +118,14 @@ section {
   display: none;
   padding-left: 1.5em;
   border-left: 0.5em solid $color-border;
+}
+
+.projects__copy_diff {
+  @include span-columns(6 of 6);
+  box-sizing: border-box;
+  display: none;
+  padding-left: 1.5em;
+  //border-left: 0.5em solid $color-border;
 }
 
 .projects__copy_details_entry_text_line {
@@ -131,8 +144,3 @@ section {
   }
 }
 
-.projects__copy_diff {
-  a {
-    text-decoration: none;
-  }
-}

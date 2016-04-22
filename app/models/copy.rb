@@ -2,6 +2,8 @@ class Copy < ActiveRecord::Base
 
   belongs_to :projects
 
+  attr_accessor :diffoutput
+
   # TODO validations for copy model.
 
   def self.make(params)
@@ -13,5 +15,5 @@ class Copy < ActiveRecord::Base
     copy.save!
     copy.project_key
   end
-  
+
 end

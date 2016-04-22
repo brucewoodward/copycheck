@@ -8,16 +8,14 @@ class ProjectsController < ApplicationController
     @key = params[:id]
     @name = params.fetch(:name, cookies[:name])
     @copies = Project.copy_details_for(@key)
-    if params.has_key?(:diff) and params[:diff].to_i == -1
-      @diffoutput_for = @diffoutput = nil
-    else
-      @diffoutput_for = params[:diff]
-      @diffoutput = diff(Copy.find(params[:diff]).text, @copies.first.text)
-    end
     if not @copies
       flash[:projects__flash_notice] = 'No such key'
       redirect_to '/'
     else
+      @copies.each do |copy|
+        next if copy == @copies.first
+        copy.diffoutput = diff(copy.text, @copies.first.text)
+      end
       @default_content = @copies.empty? ? nil : @copies.first.text
     end
   end
