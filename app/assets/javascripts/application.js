@@ -18,6 +18,6 @@
 $(function() {
   $('.projects__copy_details_entry a.preview').click(function(event) {
     event.preventDefault();
-    $(this.parentNode).find('.projects__copy_details_entry_text').toggle();
+    $(this.parentNode).find('.projects__copy_details_entry_text').first().toggle();
   });
 });
