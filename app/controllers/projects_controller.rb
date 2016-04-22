@@ -8,7 +8,9 @@ class ProjectsController < ApplicationController
     @key = params[:id]
     @name = params.fetch(:name, cookies[:name])
     @copies = Project.copy_details_for(@key)
-    if params.has_key?(:diff)
+    if params.has_key?(:diff) and params[:diff].to_i == -1
+      @diffoutput_for = @diffoutput = nil
+    else
       @diffoutput_for = params[:diff]
       @diffoutput = diff(Copy.find(params[:diff]).text, @copies.first.text)
     end
