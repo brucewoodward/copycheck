@@ -44,3 +44,8 @@
             %a.preview Preview this version of copy
             .projects__copy_details_entry_text
               = simple_format h(copy.text)
+            - next if @copies.first == copy
+            .projects__copy_diff
+              %a(href="/projects/#{@key}/?#{{name: @name, diff: copy.id}.to_param}") Diff this version of copy
+              - if @diffoutput_for.to_i == copy.id.to_i
+                = raw(@diffoutput)

@@ -1,9 +1,17 @@
 class ProjectsController < ApplicationController
 
+  def diff(txt1, txt2)
+    Diffy::Diff.new(txt1, txt2).to_s(:html)
+  end
+
   def show
     @key = params[:id]
     @name = params.fetch(:name, cookies[:name])
     @copies = Project.copy_details_for(@key)
+    if params.has_key?(:diff)
+      @diffoutput_for = params[:diff]
+      @diffoutput = diff(Copy.find(params[:diff]).text, @copies.first.text)
+    end
     if not @copies
       flash[:projects__flash_notice] = 'No such key'
       redirect_to '/'
