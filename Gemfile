@@ -35,6 +35,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+  gem 'rspec-rails', '~> 3.0'
+  gem 'capybara'
+  gem 'factory_girl_rails'
 end
 
 group :development do
@@ -51,12 +54,14 @@ gem "neat"
 
 gem 'rails_12factor', group: :production
 
-group :development, :test do
-    gem 'rspec-rails', '~> 3.0'
-end
-
 #%w[rspec-core rspec-expectations rspec-mocks rspec-rails rspec-support].each do |lib|
 #    gem lib, :git => "https://github.com/rspec/#{lib}.git", :branch => 'master'
 #end
 
 gem "diffy"
+
+group :test do
+    gem 'shoulda-matchers', '~> 3.0', require: false
+    gem 'database_cleaner', '~> 1.5'
+    gem 'faker'
+end
