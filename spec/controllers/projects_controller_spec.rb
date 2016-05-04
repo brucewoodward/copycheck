@@ -16,9 +16,10 @@ RSpec.describe ProjectsController, type: :controller do
     end
   end
 
+  # TODO figure out why the following test doesn't work when it's possible to
+  # run wget localhost:3000/projects/show from the command line.
   #describe "Adding and review of copy" do
   #  it "renders the show template" do
-  #    key = Key.generate
   #    get :show
   #    expect(response).to render_template('show')
   #  end
